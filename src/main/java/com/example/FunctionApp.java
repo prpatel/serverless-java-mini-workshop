@@ -35,11 +35,11 @@ public class FunctionApp {
     if (nameArg == null) {
       result = "Hello! Welcome to OpenWhisk";
     } else {
-      result = "Hello " + nameArg.getAsString() + " Welcome to OpenWhisk";
+      result = "Hello " + nameArg.getAsString() + "! Welcome to OpenWhisk";
     }
     response.addProperty("greetings", result);
 
-    logger.info("invoked with params:");
+    logger.info("invoked with params: " + args);
     return response;
   }
 }
