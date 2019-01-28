@@ -17,30 +17,30 @@ package com.example;
  * limitations under the License.
  */
 
+import com.cloudant.client.api.ClientBuilder;
+import com.cloudant.client.api.CloudantClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.logging.Logger;
 
 /**
- * Hello FunctionApp
+ * CreateEngagement
  */
-public class FunctionApp {
-  protected static final Logger logger = Logger.getLogger("basic");
+public class CreateEngagement {
+    protected static final Logger logger = Logger.getLogger("basic");
 
-  public static JsonObject main(JsonObject args) {
+    public static JsonObject main(JsonObject args) {
+        JsonObject response = new JsonObject();
+        // connect to cloudant using IAM
 
-    JsonObject response = new JsonObject();
-    JsonPrimitive nameArg = args.getAsJsonPrimitive("name");
-    String result;
-    if (nameArg == null) {
-      result = "Hello! Welcome to OpenWhisk";
-    } else {
-      result = "Hello " + nameArg.getAsString() + " welcome to Dawscon!!!";
+        response.addProperty("serverVersion", "something");
+
+        logger.info("invoked with params:");
+        return response;
     }
-    response.addProperty("greetings", result);
 
-    logger.info("invoked with params:");
-    return response;
-  }
+
 }

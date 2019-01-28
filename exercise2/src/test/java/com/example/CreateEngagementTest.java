@@ -17,30 +17,25 @@ package com.example;
  * limitations under the License.
  */
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+import static org.junit.Assert.*;
 
-import java.util.logging.Logger;
+import com.google.gson.JsonObject;
+
+import org.junit.Test;
 
 /**
- * Hello FunctionApp
+ * Unit test for simple function.
  */
-public class FunctionApp {
-  protected static final Logger logger = Logger.getLogger("basic");
-
-  public static JsonObject main(JsonObject args) {
-
-    JsonObject response = new JsonObject();
-    JsonPrimitive nameArg = args.getAsJsonPrimitive("name");
-    String result;
-    if (nameArg == null) {
-      result = "Hello! Welcome to OpenWhisk";
-    } else {
-      result = "Hello " + nameArg.getAsString() + " welcome to Dawscon!!!";
-    }
-    response.addProperty("greetings", result);
-
-    logger.info("invoked with params:");
-    return response;
+public class CreateEngagementTest {
+  @Test
+  public void testFunction() {
+    JsonObject args = new JsonObject();
+    JsonObject response = CreateEngagement.main(args);
+    assertNotNull(response);
+    String greetings = response.getAsJsonPrimitive("serverVersion").getAsString();
+    assertNotNull(greetings);
+//    assertEquals("Hello! Welcome to OpenWhisk", greetings);
   }
+
+
 }
