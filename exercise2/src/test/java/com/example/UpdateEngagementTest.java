@@ -1,6 +1,7 @@
 package com.example;
 
 import com.google.gson.JsonObject;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class UpdateEngagementTest {
 
     @Test
+    @Ignore
     public void testUpdate() {
         String newLocation = "Shangri-la";
         // create a test item

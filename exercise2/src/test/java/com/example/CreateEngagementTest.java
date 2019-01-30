@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
 
 import com.google.gson.JsonObject;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -28,10 +29,11 @@ import org.junit.Test;
  */
 public class CreateEngagementTest {
   @Test
+  @Ignore
   public void testFunction() {
     JsonObject args = new JsonObject();
-//    JsonObject response = CreateEngagement.main(args);
-
+    JsonObject response = CreateEngagement.main(args);
+    assertNotNull( response.getAsJsonPrimitive("id").getAsString());
 //    assertNotNull(greetings);
 //    assertEquals("Hello! Welcome to OpenWhisk", greetings);
   }

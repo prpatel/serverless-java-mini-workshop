@@ -1,6 +1,7 @@
 package com.example;
 
 import com.google.gson.JsonObject;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import static org.junit.Assert.*;
 public class DeleteEngagementTest {
 
     @Test
+    @Ignore
     public void testFound() {
         // create a test item
         JsonObject args = new JsonObject();
@@ -25,7 +27,7 @@ public class DeleteEngagementTest {
         args.addProperty("id", engagement.get_id());
         // delete it
         JsonObject response = DeleteEngagement.main(args);
-        // check the reponse
+        // check the response
         System.out.println(response);
         assertEquals("OK", response.getAsJsonPrimitive("result").getAsString());
 
