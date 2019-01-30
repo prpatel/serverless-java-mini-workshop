@@ -39,7 +39,6 @@ public class GetDBVersion {
 
         // connect to cloudant using IAM
         CloudantClient client =  ServiceHelper.createClient(args);
-        System.out.println("Getting Cloundant version");
         response.addProperty("serverVersion", client.serverVersion());
         return response;
     }

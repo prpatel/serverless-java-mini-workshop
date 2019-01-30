@@ -30,14 +30,14 @@ public class ServiceHelper {
 
         } else {
             System.out.println("Running locally. Looking for credentials in cloudant.properties");
-            String apikey = getLocalProperties("ibmcloud.properties").getProperty("cloudant_apikey");
-            String host = getLocalProperties("ibmcloud.properties").getProperty("cloudant_host");
+            String apikey = getLocalProperties("local.properties").getProperty("cloudant_apikey");
+            String host = getLocalProperties("local.properties").getProperty("cloudant_host");
             if (apikey == null || apikey.length() == 0) {
                 System.out.println("To use a database, set the Cloudant url in src/main/resources/cloudant.properties");
                 return null;
             }
-            cloudantCredentials[0] = apikey;
-            cloudantCredentials[1] = host;
+            cloudantCredentials = new String[]{apikey, host};
+
         }
 
         try {

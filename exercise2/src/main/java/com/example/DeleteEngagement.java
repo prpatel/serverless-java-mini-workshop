@@ -17,35 +17,36 @@ package com.example;
  * limitations under the License.
  */
 
-import com.cloudant.client.api.CloudantClient;
-import com.cloudant.client.api.Database;
-import com.cloudant.client.api.model.Response;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.ibm.cloud.functions.ServiceHelper;
+import com.google.gson.JsonPrimitive;
 
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
  * CreateEngagement
  */
-public class CreateEngagement {
+public class DeleteEngagement {
     protected static final Logger logger = Logger.getLogger("basic");
 
     public static JsonObject main(JsonObject args) {
         JsonObject response = new JsonObject();
 
-        EngagementStore store = new EngagementStore(args, "engagements");
-
-        String[] tags = new String[] {"java", "cloud"};
-        Engagement jfokus = new Engagement( "JFokus 2019", "Stockholm",new Date());
-        jfokus.setTags(tags);
-        jfokus = store.persist(jfokus);
-        System.out.println(jfokus.get_id());
-        System.out.println(jfokus.get_rev());
-
-        response.addProperty("id", jfokus.get_id());
+        JsonPrimitive idArg = args.getAsJsonPrimitive("id");
+        if (idArg == null) {
+            response.addProperty("result", "id not provided");
+        } else {
+            EngagementStore store = new EngagementStore(args, "engagements");
+            Engagement engagement = store.findById(idArg.getAsString());
+            if (engagement != null) {
+                store.delete(engagement);
+                response.addProperty("result", "OK");
+            } else {
+                response.addProperty("result", "object not found");
+            }
+        }
         return response;
     }
 

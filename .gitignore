@@ -23,3 +23,5 @@
 hs_err_pid*
 .idea
 target
+
+exercise2/src/main/resources/local.properties

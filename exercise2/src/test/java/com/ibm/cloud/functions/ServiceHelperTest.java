@@ -6,6 +6,8 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonParser;
 import org.junit.Test;
 
+import java.util.Properties;
+
 import static org.junit.Assert.*;
 
 public class ServiceHelperTest {
@@ -41,5 +43,11 @@ public class ServiceHelperTest {
 
     @Test
     public void getLocalProperties() {
+
+        String apikey = ServiceHelper.getLocalProperties("local.properties").getProperty("cloudant_apikey");
+        String host = ServiceHelper.getLocalProperties("local.properties").getProperty("cloudant_host");
+
+//        assertEquals("SOMETHING", apikey);
+//        assertEquals("SOMETHING", host);
     }
 }
