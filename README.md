@@ -192,13 +192,9 @@ This also adds the "--blocking" flag, discussed below.
 * ibmcloud wsk list
     * note that "wsk" is used here instead of fn! The ibmcloud" command wraps the OpenWhisk "wsk" command with either "fn" or "wsk"!
 * ibmcloud wsk action invoke --blocking helloJava
-    * this invokes the action in an sync fashion, you'll get a alot of text back, but you're interested in this:
-    ***
-        "activationId": "13a3f62589214b7da3f62589214b7d1e",
-    ***
-    * this is what you'll use to get the result back later!
+    * this invokes the action in a sync fashion. Without the "--result" flag, you'll get a a lot of other meta data back other than the result
 * ibmcloud wsk action invoke helloJava
-    * this invokes the action in an sync fashion, with something called an activationId
+    * this invokes the action in an async fashion which is useful for longer running actions that you don't want to be blocking. The id returned is the activationId which is a reference for the invocation of this action.
         ***
             ok: invoked /_/helloJava with id 5923d0321aa04fffa3d0321aa0cfffc2
         ***
