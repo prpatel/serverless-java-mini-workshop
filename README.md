@@ -57,8 +57,8 @@ Follow these instructions to check which default region your lite account has be
 1. Open the [IBM Cloud homepage](https://console.bluemix.net/).
 2. Click the *"Manage"* menu from the page header.
 3. Click the *"[Account > Cloud Foundry Orgs](https://console.bluemix.net/account/organizations)"* option from the drop-down menu.
-4. From the [Cloud Foundry Organisations](https://console.bluemix.net/account/organizations) page, click the organisation name listed in the table.
-5. Check the "*Region*" value listed in the organisation details table.
+4. From the [Cloud Foundry Organizations](https://console.bluemix.net/account/organizations) page, click the organization name listed in the table.
+5. Check the "*Region*" value listed in the organization details table.
 
 ![Registration page](images/default_region.png)
 
@@ -123,7 +123,7 @@ Follow these instructions to check which default region your lite account has be
 
    ```
 
-4. Run the following command to configure the organisation and space the CLI is targeting.
+4. Run the following command to configure the organization and space the CLI is targeting.
 
    ```
    $ ibmcloud target --cf
@@ -162,13 +162,13 @@ Follow these instructions to check which default region your lite account has be
 1. Run the following command to invoke a test function from the command-line.
 
    ```
-   $ ibmcloud wsk action invoke whisk.system/utils/echo -p message hello --result
+   $ ibmcloud fn action invoke whisk.system/utils/echo -p message hello --result
    {
        "message": "hello"
    }
    ```
 
-*If this command executes successfully, you have verified that the IBM Cloud CLI and Cloud Functions plugin have been installed and configured correctly. If this does not work, please contact the workshop organiser to provide assistance!*
+*If this command executes successfully, you have verified that the IBM Cloud CLI and Cloud Functions plugin have been installed and configured correctly. If this does not work, please contact the workshop organizer to provide assistance!*
 
 🎉🎉🎉 **Congratulations, you've successfully registered an IBM Cloud account, configured the IBM Cloud CLI for Cloud Functions development and executed your first serverless function! Let's start using the platform to create our own serverless applications…** 🎉🎉🎉
 
@@ -181,7 +181,7 @@ From where you cloned this git repo:
 
 You should see:
 {
-    "greetings": "Hello! Welcome to OpenWhisk"
+    "greetings": "Hello World Welcome to OpenWhisk"
 }
 
 "--result" means just show the results. Omit that, and see what you get back :)
@@ -210,7 +210,7 @@ This also adds the "--blocking" flag, discussed below.
     * To get everything (not just result): ibmcloud wsk activation get 5923d0321aa04fffa3d0321aa0cfffc2
 
     
-* ibmcloud fn action update helloJava target/hello-world-java.jar --main com.example.FunctionApp
+* ibmcloud wsk action update helloJava target/hello-world-java.jar --main com.example.FunctionApp
     * This will update the Cloud Function!              
 
 ### What about logs?
