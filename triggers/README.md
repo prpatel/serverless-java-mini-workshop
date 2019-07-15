@@ -90,6 +90,8 @@ So you've finished before everyone else? No problem, here's some more stuff you 
 * Create a recurring trigger:
 
 ```ibmcloud fn trigger create interval --feed /whisk.system/alarms/interval --param minutes "<minutes>" --param trigger_payload "{<key>:<value>,<key>:<value>}" --param startDate "<start_date>" --param stopDate "<stop_date>"```
+
+### MAKE SURE YOU DELETE THIS TRIGGER!
     
    
    
